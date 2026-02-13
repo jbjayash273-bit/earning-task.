@@ -3,111 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="eJTrhZozsRDEBh0_miIOQ0MSJfcyxACITmJTWzONefc" />
-    <title>JAYASH GLOBAL | Professional Elite Systems</title>
+    <title>JAYASH GLOBAL | Professional Elite Portal</title>
     <style>
         :root { 
-            /* Real Gold Gradient for Branding */
-            --gold: linear-gradient(to bottom, #cfaf55 0%, #fef8b2 20%, #f1d67e 40%, #e1bb44 60%, #bc9837 80%, #907328 100%);
-            --dark-blue: #050a18; 
-            --card-bg: #0d1425;
+            --gold-gradient: linear-gradient(145deg, #ffdc73 0%, #ffcf40 25%, #ffdc73 50%, #d4af37 75%, #a67c00 100%);
+            --deep-navy: #040916;
+            --card-glass: rgba(13, 20, 37, 0.95);
         }
-        body { font-family: 'Inter', sans-serif; background: var(--dark-blue); color: #ffffff; margin: 0; display: flex; justify-content: center; min-height: 100vh; }
-        .app-container { width: 100%; max-width: 480px; padding: 25px; text-align: center; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--deep-navy); color: white; margin: 0; display: flex; justify-content: center; }
+        .app-container { width: 100%; max-width: 460px; padding: 20px; box-sizing: border-box; }
 
-        /* Golden Play Button Style Name */
-        .brand-gold { 
-            font-size: 42px; font-weight: 900; letter-spacing: 8px; 
-            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-transform: uppercase; margin: 0; line-height: 1.2;
-            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
-        }
-        .owner-gold { 
-            font-size: 12px; font-weight: 700; letter-spacing: 3px;
-            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-transform: uppercase; margin-top: 5px; display: block;
-        }
-
-        /* High-End Dashboard */
-        .dashboard { background: var(--card-bg); border-radius: 25px; padding: 25px; border: 1px solid #1e293b; margin: 30px 0; text-align: left; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
-        .bal-label { font-size: 10px; color: #64748b; letter-spacing: 2px; }
-        .bal-val { font-size: 40px; font-weight: 700; color: #10b981; margin: 10px 0; font-family: 'Courier New', monospace; }
-
-        /* Video Section with Sunset Photo */
-        .video-hub { position: relative; border-radius: 20px; overflow: hidden; border: 2px solid #334155; background: #000; height: 260px; margin-bottom: 25px; cursor: pointer; }
-        .video-bg { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
-        .play-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(56, 189, 248, 0.15); border: 2px solid #38bdf8; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); }
-        .play-icon { border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid #fff; margin-left: 10px; }
-
-        .status-update { font-size: 14px; color: #fbbf24; font-weight: bold; margin-bottom: 15px; min-height: 22px; }
-
-        /* Global Action Buttons */
-        .btn-main { background: linear-gradient(135deg, #0ea5e9, #2563eb); color: white; padding: 18px; border-radius: 15px; font-weight: 800; border: none; width: 100%; font-size: 16px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .btn-withdraw { background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 15px; border-radius: 15px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 20px; font-size: 13px; text-transform: uppercase; }
+        /* Professional Header: Name Left | Live Light Right */
+        .elite-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #1e293b; padding-bottom: 15px; }
         
-        .footer-text { font-size: 9px; color: #475569; margin-top: 50px; letter-spacing: 2px; text-transform: uppercase; }
-    </style>
-</head>
-<body>
-    <div class="app-container">
-        <div style="margin-bottom: 40px;">
-            <div class="brand-gold">JAYASH</div>
-            <span class="owner-gold">OFFICIAL SYSTEM OWNER</span>
-        </div>
-
-        <div class="dashboard">
-            <div class="bal-label">TOTAL CAPITAL ASSETS</div>
-            <div class="bal-val">₹ <span id="balance">0.00</span></div>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; border-top: 1px solid #1e293b; padding-top: 12px;">
-                <span>SERVER: ASIA-GLOBAL-01</span>
-                <span>TASKS COMPLETED: <span id="taskCount">0</span></span>
-            </div>
-        </div>
-
-        <div id="status" class="status-update">System Ready for Protocol Verification...</div>
-
-        <div class="video-hub" onclick="startEliteTask()">
-            <img src="https://raw.githubusercontent.com/jbjayash273-bit/earning-task/main/earning-task/1000359752.jpg" class="video-bg" alt="Asset Background">
-            <div class="play-ring"><div class="play-icon"></div></div>
-            <div style="position: absolute; bottom: 15px; width: 100%; font-size: 11px; font-weight: 800; color: #94a3b8; letter-spacing: 2px;">ENCRYPTED ASSET STREAM</div>
-        </div>
-
-        <button id="mainBtn" onclick="startEliteTask()" class="btn-main">INITIALIZE PREMIUM TASK (₹499)</button>
-        <button onclick="alert('Institutional Security: Minimum Withdrawal Limit is ₹5,000.')" class="btn-withdraw">Withdraw Funds (Limit: ₹5,000)</button>
-
-        <footer class="footer-text">
-            Institutional Grade Infrastructure <br>
-            © 2026 JAYASH GLOBAL | Verified by Google
-        </footer>
-    </div>
-
-    <script>
-        let currentBalance = 0; let totalTasks = 0; let isWorking = false;
-        function startEliteTask() {
-            if(isWorking) return; isWorking = true;
-            
-            // Open Monetag Link
-            window.open('https://omg10.com/4/10604947', '_blank');
-
-            let seconds = 30;
-            document.getElementById('mainBtn').innerText = "VERIFYING DATA...";
-            
-            let timer = setInterval(() => {
-                seconds--;
-                document.getElementById('status').innerText = "Verification in Progress: " + seconds + "s Remaining";
-                
-                if(seconds <= 0) {
-                    clearInterval(timer);
-                    currentBalance += 499;
-                    totalTasks += 1;
-                    document.getElementById('balance').innerText = currentBalance.toLocaleString('en-IN') + ".00";
-                    document.getElementById('taskCount').innerText = totalTasks;
-                    document.getElementById('status').innerText = "Task 01 Complete: ₹499 Added to Assets.";
-                    document.getElementById('mainBtn').innerText = "INITIALIZE NEXT TASK";
-                    isWorking = false;
-                }
-            }, 1000);
-        }
-    </script>
-</body>
-</html>
+        .brand-box { text-align: left; }
+        .gold-name { 
+            font-size: 32px; font-weight: 900; letter-spacing: 4px; 
+            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-transform: uppercase; margin
