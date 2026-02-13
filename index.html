@@ -4,110 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="eJTrhZozsRDEBh0_miIOQ0MSJfcyxACITmJTWzONefc" />
-    <title>JAYASH GLOBAL | Professional Task Systems</title>
+    <title>JAYASH GLOBAL | Professional Digital Systems</title>
     <style>
-        :root { --primary: #00d2ff; --secondary: #3a7bd5; --dark: #020617; --card: #0f172a; }
-        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; margin: 0; display: flex; justify-content: center; min-height: 100vh; }
-        .app-container { width: 100%; max-width: 480px; padding: 20px; }
-        
-        /* High-End Header */
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #1e293b; padding-bottom: 15px; }
-        .brand { font-size: 22px; font-weight: 800; letter-spacing: 4px; color: var(--primary); }
-        .status-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; margin-right: 5px; }
-        
-        /* Premium Wallet Card */
-        .wallet-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 24px; padding: 25px; border: 1px solid #334155; position: relative; overflow: hidden; margin-bottom: 25px; }
-        .wallet-card::before { content: ""; position: absolute; top: -50%; right: -50%; width: 200px; height: 200px; background: rgba(56, 189, 248, 0.1); border-radius: 50%; }
-        .bal-label { font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
-        .bal-amount { font-size: 36px; font-weight: 700; margin: 10px 0; color: #ffffff; }
-        
-        /* Task Hub & Player */
-        .player-wrapper { position: relative; border-radius: 20px; overflow: hidden; border: 2px solid var(--secondary); background: #000; height: 240px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .player-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; } /* Photo From: */
-        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.3); transition: 0.3s; cursor: pointer; }
-        .play-btn:active { transform: translate(-50%, -50%) scale(0.9); }
-        .play-btn::after { content: ''; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid white; margin-left: 8px; }
-        
-        /* Dynamic Timer & Progress */
-        .timer-box { font-size: 14px; color: #facc15; font-weight: 600; margin-bottom: 15px; min-height: 20px; }
-        
-        /* Modern Buttons */
-        .btn-glow { background: linear-gradient(90deg, #3a7bd5, #00d2ff); color: white; padding: 18px; border-radius: 16px; font-weight: 700; border: none; width: 100%; font-size: 16px; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
-        .btn-outline { background: transparent; border: 1px solid #334155; color: #94a3b8; margin-top: 15px; padding: 12px; border-radius: 12px; font-size: 13px; cursor: pointer; width: 100%; }
-        
-        .footer-brand { font-size: 10px; color: #475569; margin-top: 40px; text-transform: uppercase; letter-spacing: 2px; }
+        :root { --brand-blue: #007aff; --gold: #d4af37; --dark-bg: #010409; --card-bg: #0d1117; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--dark-bg); color: #e6edf3; margin: 0; display: flex; justify-content: center; min-height: 100vh; }
+        .app-container { width: 100%; max-width: 480px; padding: 25px; box-sizing: border-box; }
+
+        /* Premium Brand Name Style (No Cartoon) */
+        .header { text-align: left; margin-bottom: 30px; border-left: 4px solid var(--brand-blue); padding-left: 15px; }
+        .brand-name { font-size: 28px; font-weight: 900; letter-spacing: 5px; color: #ffffff; text-transform: uppercase; margin: 0; line-height: 1; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .owner-badge { font-size: 11px; color: var(--brand-blue); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px; display: block; }
+
+        /* Professional Wallet Dashboard */
+        .wallet-dashboard { background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid #30363d; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .label { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+        .balance-value { font-size: 38px; font-weight: 600; color: #ffffff; font-family: 'Courier New', monospace; }
+
+        /* Video Player - With Your Sunset Photo */
+        .player-frame { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid #30363d; background: #000; height: 250px; margin-bottom: 25px; cursor: pointer; }
+        .player-bg { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; filter: grayscale(20%); }
+        .play-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+        .play-triangle { border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 20px solid #fff; margin-left: 8px; }
+
+        /* Action Buttons - Professional Style */
+        .btn-prime { background: #238636; color: #ffffff; padding: 18px; border-radius: 8px; font-weight: 600; border: none; width: 100%; font-size: 15px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.2s; }
+        .btn-prime:hover { background: #2ea043; }
+        .btn-sec { background: transparent; border: 1px solid #30363d; color: #8b949e; margin-top: 15px; padding: 12px; border-radius: 8px; font-size: 12px; cursor: pointer; width: 100%; }
+
+        .system-status { font-size: 13px; color: #d29922; margin-bottom: 15px; font-weight: 500; }
     </style>
 </head>
 <body>
     <div class="app-container">
-        <header class="header">
-            <div class="brand">JAYASH</div>
-            <div style="display: flex; align-items: center;"><div class="status-dot"></div> <span style="font-size: 11px; color: #94a3b8;">SYSTEMS LIVE</span></div>
-        </header>
+        <div class="header">
+            <h1 class="brand-name">JAYASH</h1>
+            <span class="owner-badge">OFFICIAL SYSTEM OWNER</span>
+        </div>
 
-        <div class="wallet-card">
-            <div class="bal-label">Centralized Balance</div>
-            <div class="bal-amount">₹ <span id="balance">0.00</span></div>
-            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b;">
-                <span>Verified ID: JS-2026</span>
-                <span>Tasks: <span id="taskCount">0</span>/Unlimited</span>
+        <div class="wallet-dashboard">
+            <div class="label">Total Managed Assets</div>
+            <div class="balance-value">₹ <span id="balance">0.00</span></div>
+            <div style="display: flex; justify-content: space-between; margin-top: 15px; font-size: 11px; color: #8b949e; border-top: 1px solid #30363d; padding-top: 10px;">
+                <span>SERVER: GLOBAL-ASIA-01</span>
+                <span>ID: J-2026-BH</span>
             </div>
         </div>
 
-        <div id="msg" class="timer-box">Awaiting Task Initiation...</div>
-
-        <div class="player-wrapper" onclick="launchTask()">
-            <img src="https://raw.githubusercontent.com/jbjayash273-bit/earning-task/main/earning-task/1000359752.jpg" class="player-img" alt="Professional Background">
-            <div class="play-btn"></div>
-            <div style="position: absolute; bottom: 15px; width: 100%; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: rgba(255,255,255,0.8);">ENCRYPTED VIDEO STREAM</div>
-        </div>
-
-        <button id="mainBtn" onclick="launchTask()" class="btn-glow">Initialize Task & Earn ₹499</button>
-        <button onclick="checkWithdraw()" class="btn-outline">Withdraw Funds (Limit: ₹5,000)</button>
-
-        <footer class="footer-brand">
-            Global Digital Asset Management © 2026 <br>
-            Powered by Secure Cloud Infrastructure
-        </footer>
-    </div>
-
-    <script>
-        let balance = 0;
-        let tasks = 0;
-        let isProcessing = false;
-
-        function launchTask() {
-            if(isProcessing) return;
-            isProcessing = true;
-            
-            // Monetag Direct Link
-            window.open('https://omg10.com/4/10604947', '_blank');
-
-            let timer = 30;
-            document.getElementById('mainBtn').innerText = "Processing Data...";
-            document.getElementById('mainBtn').style.opacity = "0.6";
-
-            let countdown = setInterval(() => {
-                timer--;
-                document.getElementById('msg').innerText = "System Verification in Progress: " + timer + "s";
-                
-                if(timer <= 0) {
-                    clearInterval(countdown);
-                    balance += 499;
-                    tasks += 1;
-                    document.getElementById('balance').innerText = balance.toLocaleString('en-IN') + ".00";
-                    document.getElementById('taskCount').innerText = tasks;
-                    document.getElementById('msg').innerText = "Task Successfully Authenticated! ₹499 Credited.";
-                    document.getElementById('mainBtn').innerText = "Next Task Available";
-                    document.getElementById('mainBtn').style.opacity = "1";
-                    isProcessing = false;
-                }
-            }, 1000);
-        }
-
-        function checkWithdraw() {
-            alert("Security Protocol: Minimum balance of ₹5,000 required for offshore transfer.");
-        }
-    </script>
-</body>
-</html>
+        <div id="statusMsg" class="system-status">System
