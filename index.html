@@ -4,85 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="eJTrhZozsRDEBh0_miIOQ0MSJfcyxACITmJTWzONefc" />
-    <title>JAYASH GLOBAL | Professional Task Systems</title>
+    <title>JAYASH GLOBAL | Professional Elite Systems</title>
     <style>
-        :root { --primary: #00d2ff; --gold: linear-gradient(180deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C); --dark: #020617; }
-        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; margin: 0; display: flex; justify-content: center; min-height: 100vh; }
-        .app-container { width: 100%; max-width: 480px; padding: 20px; text-align: center; }
-        
-        /* Gold Brand Name - Gold Play Button Style */
-        .brand { 
-            font-size: 35px; font-weight: 900; letter-spacing: 6px; 
-            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-transform: uppercase; margin: 0; filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.5));
+        :root { 
+            /* Real Gold Gradient for Branding */
+            --gold: linear-gradient(to bottom, #cfaf55 0%, #fef8b2 20%, #f1d67e 40%, #e1bb44 60%, #bc9837 80%, #907328 100%);
+            --dark-blue: #050a18; 
+            --card-bg: #0d1425;
         }
-        .owner-label { font-size: 11px; color: #38bdf8; font-weight: bold; letter-spacing: 2px; margin-top: 5px; display: block; }
-        
-        /* Dashboard Jaisa Pehle Tha */
-        .wallet-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-radius: 24px; padding: 25px; border: 1px solid #334155; margin: 25px 0; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .bal-amount { font-size: 38px; font-weight: 700; color: #22c55e; margin: 10px 0; }
-        
-        /* Video Player with Sunset Photo */
-        .player-wrapper { position: relative; border-radius: 20px; overflow: hidden; border: 2px solid #3a7bd5; background: #000; height: 240px; margin-bottom: 20px; cursor: pointer; }
-        .player-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
-        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75px; height: 75px; background: rgba(56, 189, 248, 0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 0 20px #38bdf8; }
-        .play-btn::after { content: ''; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid white; margin-left: 8px; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-blue); color: #ffffff; margin: 0; display: flex; justify-content: center; min-height: 100vh; }
+        .app-container { width: 100%; max-width: 480px; padding: 25px; text-align: center; }
 
-        .status-msg { color: #facc15; font-size: 14px; font-weight: bold; margin-bottom: 15px; min-height: 20px; }
+        /* Golden Play Button Style Name */
+        .brand-gold { 
+            font-size: 42px; font-weight: 900; letter-spacing: 8px; 
+            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-transform: uppercase; margin: 0; line-height: 1.2;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+        }
+        .owner-gold { 
+            font-size: 12px; font-weight: 700; letter-spacing: 3px;
+            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-transform: uppercase; margin-top: 5px; display: block;
+        }
+
+        /* High-End Dashboard */
+        .dashboard { background: var(--card-bg); border-radius: 25px; padding: 25px; border: 1px solid #1e293b; margin: 30px 0; text-align: left; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+        .bal-label { font-size: 10px; color: #64748b; letter-spacing: 2px; }
+        .bal-val { font-size: 40px; font-weight: 700; color: #10b981; margin: 10px 0; font-family: 'Courier New', monospace; }
+
+        /* Video Section with Sunset Photo */
+        .video-hub { position: relative; border-radius: 20px; overflow: hidden; border: 2px solid #334155; background: #000; height: 260px; margin-bottom: 25px; cursor: pointer; }
+        .video-bg { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .play-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(56, 189, 248, 0.15); border: 2px solid #38bdf8; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); box-shadow: 0 0 30px rgba(56, 189, 248, 0.4); }
+        .play-icon { border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid #fff; margin-left: 10px; }
+
+        .status-update { font-size: 14px; color: #fbbf24; font-weight: bold; margin-bottom: 15px; min-height: 22px; }
+
+        /* Global Action Buttons */
+        .btn-main { background: linear-gradient(135deg, #0ea5e9, #2563eb); color: white; padding: 18px; border-radius: 15px; font-weight: 800; border: none; width: 100%; font-size: 16px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .btn-withdraw { background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 15px; border-radius: 15px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 20px; font-size: 13px; text-transform: uppercase; }
         
-        /* Buttons Jaisa Pehle Tha */
-        .btn-glow { background: linear-gradient(90deg, #3a7bd5, #00d2ff); color: white; padding: 18px; border-radius: 16px; font-weight: 700; border: none; width: 100%; font-size: 16px; cursor: pointer; text-transform: uppercase; margin-bottom: 15px; }
-        .btn-withdraw { background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 12px; border-radius: 12px; width: 100%; cursor: pointer; font-weight: bold; }
+        .footer-text { font-size: 9px; color: #475569; margin-top: 50px; letter-spacing: 2px; text-transform: uppercase; }
     </style>
 </head>
 <body>
     <div class="app-container">
-        <div style="margin-bottom: 30px;">
-            <div class="brand">JAYASH</div>
-            <span class="owner-label">OFFICIAL SYSTEM OWNER</span>
+        <div style="margin-bottom: 40px;">
+            <div class="brand-gold">JAYASH</div>
+            <span class="owner-gold">OFFICIAL SYSTEM OWNER</span>
         </div>
 
-        <div class="wallet-card">
-            <div style="font-size: 11px; color: #94a3b8; letter-spacing: 1px;">CENTRALIZED BALANCE</div>
-            <div class="bal-amount">₹ <span id="balance">0.00</span></div>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #64748b; border-top: 1px solid #1e293b; padding-top: 10px;">
-                <span>Verified ID: JS-2026</span>
-                <span>Tasks Done: <span id="taskCount">0</span></span>
+        <div class="dashboard">
+            <div class="bal-label">TOTAL CAPITAL ASSETS</div>
+            <div class="bal-val">₹ <span id="balance">0.00</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; border-top: 1px solid #1e293b; padding-top: 12px;">
+                <span>SERVER: ASIA-GLOBAL-01</span>
+                <span>TASKS COMPLETED: <span id="taskCount">0</span></span>
             </div>
         </div>
 
-        <div id="msg" class="status-msg">System Ready for Task Verification...</div>
+        <div id="status" class="status-update">System Ready for Protocol Verification...</div>
 
-        <div class="player-wrapper" onclick="launchTask()">
-            <img src="https://raw.githubusercontent.com/jbjayash273-bit/earning-task/main/earning-task/1000359752.jpg" class="player-img">
-            <div class="play-btn"></div>
-            <div style="position: absolute; bottom: 12px; width: 100%; font-size: 10px; font-weight: bold; letter-spacing: 1px;">ENCRYPTED VIDEO STREAM</div>
+        <div class="video-hub" onclick="startEliteTask()">
+            <img src="https://raw.githubusercontent.com/jbjayash273-bit/earning-task/main/earning-task/1000359752.jpg" class="video-bg" alt="Asset Background">
+            <div class="play-ring"><div class="play-icon"></div></div>
+            <div style="position: absolute; bottom: 15px; width: 100%; font-size: 11px; font-weight: 800; color: #94a3b8; letter-spacing: 2px;">ENCRYPTED ASSET STREAM</div>
         </div>
 
-        <button id="mainBtn" onclick="launchTask()" class="btn-glow">INITIALIZE TASK & EARN ₹499</button>
-        <button onclick="alert('Minimum Withdrawal: ₹5,000 required.')" class="btn-withdraw">Withdraw Funds (Min. ₹5000)</button>
+        <button id="mainBtn" onclick="startEliteTask()" class="btn-main">INITIALIZE PREMIUM TASK (₹499)</button>
+        <button onclick="alert('Institutional Security: Minimum Withdrawal Limit is ₹5,000.')" class="btn-withdraw">Withdraw Funds (Limit: ₹5,000)</button>
 
-        <footer style="font-size: 9px; color: #475569; margin-top: 40px; letter-spacing: 1px;">
-            GLOBAL ASSET MANAGEMENT © 2026 <br> GOOGLE VERIFIED SYSTEM
+        <footer class="footer-text">
+            Institutional Grade Infrastructure <br>
+            © 2026 JAYASH GLOBAL | Verified by Google
         </footer>
     </div>
 
     <script>
-        let balance = 0; let tasks = 0; let isProcessing = false;
-        function launchTask() {
-            if(isProcessing) return; isProcessing = true;
+        let currentBalance = 0; let totalTasks = 0; let isWorking = false;
+        function startEliteTask() {
+            if(isWorking) return; isWorking = true;
+            
+            // Open Monetag Link
             window.open('https://omg10.com/4/10604947', '_blank');
-            let timer = 30;
-            let countdown = setInterval(() => {
-                timer--;
-                document.getElementById('msg').innerText = "Verifying Protocol: " + timer + "s Remaining";
-                if(timer <= 0) {
-                    clearInterval(countdown);
-                    balance += 499; tasks += 1;
-                    document.getElementById('balance').innerText = balance.toLocaleString('en-IN') + ".00";
-                    document.getElementById('taskCount').innerText = tasks;
-                    document.getElementById('msg').innerText = "Task Successfully Authenticated! ₹499 Added.";
-                    isProcessing = false;
+
+            let seconds = 30;
+            document.getElementById('mainBtn').innerText = "VERIFYING DATA...";
+            
+            let timer = setInterval(() => {
+                seconds--;
+                document.getElementById('status').innerText = "Verification in Progress: " + seconds + "s Remaining";
+                
+                if(seconds <= 0) {
+                    clearInterval(timer);
+                    currentBalance += 499;
+                    totalTasks += 1;
+                    document.getElementById('balance').innerText = currentBalance.toLocaleString('en-IN') + ".00";
+                    document.getElementById('taskCount').innerText = totalTasks;
+                    document.getElementById('status').innerText = "Task 01 Complete: ₹499 Added to Assets.";
+                    document.getElementById('mainBtn').innerText = "INITIALIZE NEXT TASK";
+                    isWorking = false;
                 }
             }, 1000);
         }
