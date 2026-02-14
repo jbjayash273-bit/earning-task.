@@ -4,119 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;800&display=swap');
-        :root { --gold: linear-gradient(135deg, #fbf5b7 0%, #d4af37 50%, #b8860b 100%); }
-        body { background: #050505; color: #fff; font-family: 'Montserrat', sans-serif; text-align: center; margin: 0; padding: 15px; }
-
-        /* 3D SPINNING GOLD LOGO */
-        .header { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #d4af3733; }
-        .j-3d-coin { 
-            width: 50px; height: 50px; background: var(--gold); border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 26px; color: #000; font-weight: 900; 
-            box-shadow: 0 0 20px #d4af37; border: 2px solid #fff;
-            animation: spin3D 4s infinite linear; transform-style: preserve-3d;
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@900&family=Montserrat:wght@400;800&display=swap');
+        
+        :root { 
+            --gold: linear-gradient(135deg, #fff3a1 0%, #d4af37 40%, #8a6d3b 100%);
+            --glow: 0 0 20px rgba(212, 175, 55, 0.8);
         }
-        @keyframes spin3D { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
 
-        .brand-box { flex-grow: 1; text-align: left; margin-left: 15px; }
-        .brand-name { font-family: 'Cinzel', serif; font-size: 18px; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .owner-id { font-size: 8px; color: #666; letter-spacing: 1px; }
+        body { background: #010101; color: #fff; font-family: 'Montserrat', sans-serif; margin: 0; padding: 15px; text-align: center; overflow-x: hidden; }
 
-        .live-status { display: flex; align-items: center; gap: 5px; background: rgba(0,255,136,0.1); border: 1px solid #00ff88; padding: 3px 8px; border-radius: 10px; font-size: 8px; color: #00ff88; }
-        .dot { width: 6px; height: 6px; background: #00ff88; border-radius: 50%; animation: blink 1s infinite; }
+        /* LUXURY HEADER */
+        .header { display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 2px solid #d4af3744; background: rgba(20,20,20,0.5); border-radius: 0 0 20px 20px; }
+        
+        .j-coin { 
+            width: 55px; height: 55px; background: var(--gold); border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 32px; color: #000; font-family: 'Orbitron', sans-serif; 
+            box-shadow: var(--glow); border: 2px solid #fff;
+            animation: rotate3D 4s infinite linear; 
+        }
+        @keyframes rotate3D { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+
+        .brand-info { text-align: left; flex-grow: 1; margin-left: 15px; }
+        .brand-name { font-family: 'Cinzel', serif; font-size: 22px; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 5px #ffd700); font-weight: bold; }
+        .owner-tag { font-size: 9px; color: #d4af37; letter-spacing: 2px; font-weight: 800; }
+
+        .live-btn { display: flex; align-items: center; gap: 6px; background: #000; border: 1px solid #00ff88; padding: 4px 10px; border-radius: 30px; font-size: 9px; color: #00ff88; font-weight: 900; box-shadow: 0 0 10px #00ff8844; }
+        .dot { width: 8px; height: 8px; background: #00ff88; border-radius: 50%; animation: blink 1s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* ASSET VAULT */
-        .vault { background: #0d1117; border: 1px solid #d4af3744; border-radius: 20px; padding: 25px; margin: 20px 0; position: relative; }
-        .balance { font-size: 42px; font-weight: 800; }
-        #verify-box { font-size: 12px; color: #d4af37; font-weight: bold; margin-top: 15px; display: none; background: rgba(212,175,55,0.1); padding: 10px; border-radius: 10px; border: 1px dashed #d4af37; }
+        /* ASSET VAULT (CHAMAKTA HUA) */
+        .vault { background: linear-gradient(145deg, #111, #000); border: 1px solid #d4af3788; border-radius: 25px; padding: 30px; margin: 25px 0; box-shadow: 0 0 30px rgba(212,175,55,0.2); position: relative; overflow: hidden; }
+        .vault::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%); }
+        .vault-label { font-size: 10px; color: #888; letter-spacing: 3px; margin-bottom: 10px; }
+        .balance { font-size: 50px; font-weight: 900; color: #fff; text-shadow: var(--glow); }
 
-        /* LUXURY BUTTONS */
-        .btn { width: 100%; padding: 16px; border-radius: 12px; border: none; font-weight: 800; font-size: 11px; letter-spacing: 1px; cursor: pointer; margin-bottom: 12px; text-transform: uppercase; transition: 0.3s; }
-        .btn-gold { background: var(--gold); color: #000; box-shadow: 0 5px 20px rgba(212,175,55,0.3); }
-        .btn-wa { background: transparent; color: #25D366; border: 1px solid #25D366; }
-        .btn:disabled { opacity: 0.4; filter: grayscale(1); }
+        #verify-box { font-size: 12px; color: #00ff88; font-weight: bold; margin-top: 15px; display: none; }
+
+        /* VVIP GOLDEN BUTTONS */
+        .btn { width: 100%; padding: 20px; border-radius: 15px; border: none; font-weight: 900; font-size: 12px; letter-spacing: 2px; cursor: pointer; margin-bottom: 15px; text-transform: uppercase; position: relative; overflow: hidden; transition: 0.3s; }
+        .btn-gold { background: var(--gold); color: #000; box-shadow: 0 5px 20px rgba(212,175,55,0.4); border: 1px solid #fff; }
+        .btn-wa { background: transparent; color: #25D366; border: 2px solid #25D366; }
+        
+        /* CLICK ANIMATION & SHINE */
+        .btn:active { transform: scale(0.95); }
+        .btn::after { content: ''; position: absolute; top: -50%; left: -150%; width: 50%; height: 200%; background: rgba(255,255,255,0.4); transform: rotate(25deg); animation: shine 3s infinite; }
+        @keyframes shine { 100% { left: 200%; } }
+
+        .btn-withdraw { background: transparent; color: #888; font-size: 10px; border: 1px dashed #444; margin-top: 10px; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <div class="j-3d-coin">J</div>
-        <div class="brand-box">
+        <div class="j-coin">J</div>
+        <div class="brand-info">
             <div class="brand-name">JAYASH ELITE</div>
-            <div class="owner-id">Technical Owner: Jayash JB</div>
+            <div class="owner-tag">OFFICIAL SYSTEM OWNER</div>
         </div>
-        <div class="live-status"><div class="dot"></div> LIVE</div>
+        <div class="live-btn"><div class="dot"></div> LIVE</div>
     </div>
 
     <div class="vault">
-        <div style="font-size: 9px; color: #d4af37; letter-spacing: 2px;">SECURE GLOBAL INVENTORY</div>
+        <div class="vault-label">GLOBAL ASSET INVENTORY</div>
         <div class="balance">₹<span id="bal">300.00</span></div>
         <div id="verify-box">AD DETECTED! VERIFYING ASSETS: <span id="sec">30</span>s</div>
     </div>
 
-    <button id="taskBtn" onclick="startProtocol()" class="btn btn-gold">Initialize Ad Protocol (₹499)</button>
-    <button id="waBtn" onclick="shareProtocol()" class="btn btn-wa">WhatsApp Networking (₹300)</button>
+    <button id="taskBtn" onclick="openAd()" class="btn btn-gold">Initialize Ad Protocol (₹499)</button>
+    <button id="waBtn" onclick="shareWa()" class="btn btn-wa">WhatsApp Networking (₹300)</button>
+    
+    <button onclick="checkWithdraw()" class="btn btn-withdraw">Withdraw Gold Assets (Min: ₹7,000)</button>
 
-    <p style="font-size: 9px; color: #333; margin-top: 20px;">ENCRYPTED PROPERTY OF JAYASH GLOBAL © 2026</p>
+    <footer style="margin-top: 40px; font-size: 9px; color: #444; letter-spacing: 2px;">
+        FOREIGN TECHNICAL PROPERTY &copy; 2026 JAYASH JB
+    </footer>
 
     <script>
         let currentAssets = 300.00;
-        let isAdOpened = false;
+        let adOpened = false;
 
-        function startProtocol() {
-            // 1. Pehle Ads khulegi
+        function openAd() {
+            // 1. Pehle Ads khulegi naye tab mein
             window.open("https://www.effectivegatecpm.com/fngjdct5?key=4bce424f12aa415209093fa656cf3dd4", "_blank");
-            isAdOpened = true;
+            adOpened = true;
             
-            // Button change karein
             const btn = document.getElementById('taskBtn');
-            btn.innerText = "VIEWING ADS... RETURN TO VERIFY";
-            btn.style.background = "#333";
-            btn.style.color = "#888";
+            btn.innerText = "ADS ACTIVE... RETURN TO VERIFY";
+            btn.disabled = true;
 
-            // Jab banda wapas screen par aayega, tab timer shuru hoga
+            // Jab banda wapas screen par aayega
             window.onfocus = function() {
-                if(isAdOpened) {
-                    runTimer(30, 499, 'taskBtn', 'Initialize Ad Protocol (₹499)');
-                    isAdOpened = false; 
+                if(adOpened) {
+                    startTimer(30, 499, 'taskBtn', 'Initialize Ad Protocol (₹499)');
+                    adOpened = false;
                 }
             };
         }
 
-        function runTimer(duration, reward, btnId, originalText) {
-            let timeLeft = duration;
+        function startTimer(seconds, reward, btnId, originalText) {
+            let time = seconds;
             const btn = document.getElementById(btnId);
             const box = document.getElementById('verify-box');
             const secSpan = document.getElementById('sec');
 
-            btn.disabled = true;
             box.style.display = "block";
+            btn.disabled = true;
 
             let countdown = setInterval(() => {
-                timeLeft--;
-                secSpan.innerText = timeLeft;
-                if(timeLeft <= 0) {
+                time--;
+                secSpan.innerText = time;
+                if(time <= 0) {
                     clearInterval(countdown);
                     currentAssets += reward;
                     document.getElementById('bal').innerText = currentAssets.toFixed(2);
                     box.style.display = "none";
                     btn.disabled = false;
                     btn.innerText = originalText;
-                    btn.style.background = ""; // Reset to gold
-                    btn.style.color = "";
-                    alert("PROTOCOL COMPLETE: ₹" + reward + " ADDED!");
+                    alert("GOLD ASSETS VERIFIED! ₹" + reward + " Added.");
                 }
             }, 1000);
         }
 
-        function shareProtocol() {
-            window.open('https://api.whatsapp.com/send?text=Join Jayash Elite!', '_blank');
-            // WhatsApp se wapas aane par timer
+        function shareWa() {
+            window.open('https://api.whatsapp.com/send?text=Join Jayash Elite Gold System!', '_blank');
             setTimeout(() => {
-                runTimer(15, 300, 'waBtn', 'WhatsApp Networking (₹300)');
+                startTimer(15, 300, 'waBtn', 'WhatsApp Networking (₹300)');
             }, 2000);
+        }
+
+        function checkWithdraw() {
+            if(currentAssets < 7000) {
+                alert("INSUFFICIENT ASSETS!\nMinimum Withdrawal: ₹7,000\nKeep working, Jayash!");
+            } else {
+                alert("SUCCESS! Withdrawal request sent for ₹" + currentAssets.toFixed(2));
+            }
         }
     </script>
 </body>
