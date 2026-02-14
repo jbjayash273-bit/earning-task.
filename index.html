@@ -3,22 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="eJTrhZozsRDEBh0_miIOQ0MSJfcyxACITmJTWzONefc" />
     <title>JAYASH GLOBAL | Professional Elite Portal</title>
     <style>
         :root { 
-            /* Real Solid Gold Gradient */
             --gold-gradient: linear-gradient(90deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
             --deep-navy: #040916;
-            --neon-green: #22c55e;
         }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--deep-navy); color: white; margin: 0; display: flex; justify-content: center; overflow-x: hidden; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--deep-navy); color: white; margin: 0; display: flex; justify-content: center; }
         .app-container { width: 100%; max-width: 460px; padding: 20px; box-sizing: border-box; }
 
-        /* HEADER: Solid Gold Spelling Shine */
-        .elite-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px solid #1e293b; padding-bottom: 15px; }
-        .brand-box { text-align: left; }
-
+        /* Solid Gold Header */
         .gold-shimmer { 
             background: var(--gold-gradient);
             background-size: 200% auto;
@@ -26,105 +20,76 @@
             -webkit-text-fill-color: transparent;
             animation: gold-flow 2s linear infinite;
             font-weight: 900;
-            text-shadow: 0 0 10px rgba(184, 134, 11, 0.3);
         }
-        .gold-name { font-size: 40px; letter-spacing: 6px; margin: 0; line-height: 1; }
-        .owner-sub { font-size: 12px; letter-spacing: 3px; margin-top: 5px; display: block; }
+        .gold-name { font-size: 40px; letter-spacing: 5px; margin: 0; }
+        .owner-sub { font-size: 12px; letter-spacing: 2px; display: block; margin-top: 5px; }
+        @keyframes gold-flow { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
 
-        @keyframes gold-flow {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
+        /* Dashboard */
+        .dashboard-card { background: linear-gradient(145deg, #0d1425, #161e31); border-radius: 24px; padding: 25px; border: 1px solid #1e293b; margin-bottom: 20px; text-align: left; }
+        .bal-main { font-size: 45px; font-weight: 800; color: #10b981; margin: 10px 0; }
 
-        /* Live Light */
-        .live-status { display: flex; align-items: center; font-size: 11px; font-weight: bold; color: #94a3b8; letter-spacing: 1.5px; }
-        .dot { width: 12px; height: 12px; background: var(--neon-green); border-radius: 50%; margin-right: 8px; box-shadow: 0 0 15px var(--neon-green); animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
+        /* Buttons Style */
+        .btn-ads { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; padding: 18px; border-radius: 12px; font-weight: 800; border: none; width: 100%; font-size: 16px; margin-bottom: 12px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+        .btn-share { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 18px; border-radius: 12px; font-weight: 800; border: none; width: 100%; font-size: 16px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); }
+        .btn-withdraw { background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 12px; border-radius: 10px; width: 100%; margin-top: 20px; cursor: pointer; font-size: 12px; font-weight: bold; }
 
-        /* Dashboard Asset Card */
-        .dashboard-card { background: linear-gradient(145deg, #0d1425, #161e31); border-radius: 24px; padding: 30px; border: 1px solid #1e293b; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .bal-main { font-size: 48px; font-weight: 800; color: #10b981; margin: 15px 0; }
-
-        /* Task Area */
-        .player-area { position: relative; border-radius: 20px; overflow: hidden; border: 2px solid #334155; height: 260px; margin-bottom: 20px; background: #000; box-shadow: 0 0 20px rgba(56, 189, 248, 0.1); }
-        .player-bg { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
-        .play-btn-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85px; height: 85px; background: rgba(56, 189, 248, 0.15); border: 3px solid #38bdf8; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); transition: 0.3s; }
-
-        /* WHATSAPP ELITE BUTTON - Special Effect */
-        .btn-whatsapp { 
-            background: linear-gradient(135deg, #25d366, #128c7e); 
-            color: white; padding: 20px; border-radius: 15px; font-weight: 900; border: none; width: 100%; font-size: 18px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            position: relative; overflow: hidden; transition: 0.3s;
-        }
-        .btn-whatsapp:active { transform: scale(0.95); box-shadow: 0 0 40px #25d366; }
-        
-        #status { font-size: 15px; color: #fbbf24; font-weight: bold; margin-bottom: 15px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-withdraw { background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 15px; border-radius: 12px; width: 100%; cursor: pointer; margin-top: 15px; font-weight: bold; }
+        #status { color: #fbbf24; font-weight: bold; margin-bottom: 10px; text-align: center; font-size: 14px; text-transform: uppercase; }
+        .live-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; display: inline-block; margin-right: 5px; box-shadow: 0 0 10px #22c55e; }
     </style>
 </head>
 <body>
     <div class="app-container">
-        <header class="elite-header">
-            <div class="brand-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+            <div>
                 <div class="gold-name gold-shimmer">JAYASH</div>
                 <span class="owner-sub gold-shimmer">OFFICIAL SYSTEM OWNER</span>
             </div>
-            <div class="live-status">
-                <div class="dot"></div> SYSTEMS LIVE
-            </div>
-        </header>
+            <div style="font-size: 10px; color: #94a3b8; font-weight: bold;"><span class="live-dot"></span> SYSTEMS LIVE</div>
+        </div>
 
         <div class="dashboard-card">
-            <div style="font-size: 12px; color: #64748b; letter-spacing: 2px;">GLOBAL ASSETS CONTROL</div>
+            <div style="font-size: 11px; color: #64748b; letter-spacing: 2px;">GLOBAL ASSETS CONTROL</div>
             <div class="bal-main">₹ <span id="balance">0.00</span></div>
-            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #475569; border-top: 1px solid #1e293b; padding-top: 15px;">
-                <span>SERVER: US-VIP-PRO-01</span>
-                <span>COMPLETED: <span id="taskCount">0</span></span>
+            <div style="font-size: 10px; color: #475569; border-top: 1px solid #1e293b; padding-top: 10px;">
+                SERVER: GLOBAL-VIP-01 | VERIFIED TASKS: <span id="taskCount">0</span>
             </div>
         </div>
 
-        <div id="status">Protocol: Awaiting Share...</div>
+        <div id="status">Awaiting Protocol...</div>
 
-        <div class="player-area" onclick="startShareTask()">
-            <img src="https://raw.githubusercontent.com/jbjayash273-bit/earning-task/main/earning-task/1000359752.jpg" class="player-bg">
-            <div class="play-btn-circle"><div style="border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid white; margin-left: 10px;"></div></div>
-        </div>
+        <button onclick="openAds()" class="btn-ads">INITIALIZE ASSET TASK (₹499)</button>
 
-        <button onclick="startShareTask()" class="btn-whatsapp">SHARE ON WHATSAPP (₹300)</button>
-        <button onclick="alert('Elite Protocol: Minimum Withdrawal ₹5,000 required.')" class="btn-withdraw">WITHDRAW ASSETS</button>
+        <button onclick="shareTask()" class="btn-share">SHARE ON WHATSAPP (₹300)</button>
+        
+        <button onclick="alert('Minimum Withdrawal ₹5,000 required.')" class="btn-withdraw">WITHDRAW ASSETS (MIN. ₹5000)</button>
 
-        <footer style="font-size: 10px; color: #475569; margin-top: 50px; text-align: center; letter-spacing: 1px;">
-            © 2026 JAYASH GLOBAL AMERICAN SYSTEMS | VERIFIED
+        <footer style="font-size: 9px; color: #475569; margin-top: 40px; text-align: center;">
+            © 2026 JAYASH GLOBAL AMERICAN SYSTEMS | VERIFIED PORTAL
         </footer>
     </div>
 
     <script>
-        let balance = 0; let tasks = 0;
-        function startShareTask() {
-            // WhatsApp Message with your site link
-            const siteUrl = window.location.href;
-            const message = encodeURIComponent("JAYASH GLOBAL SYSTEM OWNER: Join this elite portal to earn assets daily! 🚀\n\nLink: " + siteUrl);
-            const whatsappUrl = "https://api.whatsapp.com/send?text=" + message;
-            
-            // Open WhatsApp
-            window.open(whatsappUrl, '_blank');
+        let balance = 0; let count = 0;
 
-            // Verification Animation
-            let timer = 5;
+        function openAds() {
+            // Yahan apna Monetag Direct Link paste karo
+            window.open('https://omg10.com/afu.php?zoneid=8831952', '_blank');
+            document.getElementById('status').innerText = "ADS INITIALIZED: PROFIT TRACKING...";
+        }
+
+        function shareTask() {
+            const siteUrl = window.location.href;
+            const msg = encodeURIComponent("JAYASH GLOBAL: Join elite system to earn daily! 🚀\nLink: " + siteUrl);
+            window.open("https://api.whatsapp.com/send?text=" + msg, '_blank');
+
             document.getElementById('status').innerText = "VERIFYING SHARE PROTOCOL...";
-            
-            let countdown = setInterval(() => {
-                timer--;
-                if(timer <= 0) {
-                    clearInterval(countdown);
-                    balance += 300; tasks += 1;
-                    document.getElementById('balance').innerText = balance.toLocaleString('en-IN') + ".00";
-                    document.getElementById('taskCount').innerText = tasks;
-                    document.getElementById('status').innerText = "SUCCESS: ₹300 ASSETS ADDED";
-                    alert("Elite Protocol: ₹300 added to your global wallet!");
-                }
-            }, 1000);
+            setTimeout(() => {
+                balance += 300; count += 1;
+                document.getElementById('balance').innerText = balance.toLocaleString('en-IN') + ".00";
+                document.getElementById('taskCount').innerText = count;
+                document.getElementById('status').innerText = "SUCCESS: ₹300 ASSETS ADDED";
+            }, 5000);
         }
     </script>
 </body>
