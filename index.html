@@ -3,159 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAYASH GLOBAL | American Diamond System</title>
+    <title>JAYASH GLOBAL | American Elite</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Exo+2:wght@900&display=swap');
-
-        :root { 
-            --gold-3d: linear-gradient(180deg, #ffeb3b 0%, #d4af37 40%, #8a6d3b 70%, #fcf6ba 100%);
-            --deep-black: #010409;
-        }
-
-        body { 
-            font-family: 'Exo 2', sans-serif; background: var(--deep-black); 
-            color: #ffffff; margin: 0; display: flex; justify-content: center;
-        }
-
-        .system-frame { width: 100%; max-width: 480px; padding: 25px; box-sizing: border-box; }
-
-        /* HEADER: SOLID GOLD LOGO & NAME */
-        .brand-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+        :root { --gold: linear-gradient(180deg, #ffeb3b 0%, #d4af37 40%, #8a6d3b 70%, #fcf6ba 100%); }
+        body { font-family: 'Exo 2', sans-serif; background: #010409; color: white; margin: 0; display: flex; justify-content: center; }
+        .frame { width: 100%; max-width: 480px; padding: 20px; box-sizing: border-box; }
         
-        .j-box-solid {
-            width: 55px; height: 55px; background: var(--gold-3d); border-radius: 12px;
+        /* SOLID GOLD LOGO - NO WHITE */
+        .logo-box {
+            width: 60px; height: 60px; background: var(--gold); border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
-            /* J color inside is now Dark Gold/Bronze for 3D look */
-            font-size: 35px; font-weight: 900; color: #5d4037; 
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), inset 0 0 10px rgba(0,0,0,0.4);
-            animation: spin-3d 6s infinite linear;
-            border: 2px solid #ffd700;
+            font-size: 38px; font-weight: 900; color: #5d4037; /* Bronze color for J */
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+            animation: spin 5s infinite linear; border: 2px solid #ffd700;
         }
-        @keyframes spin-3d { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+        @keyframes spin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
 
-        .name-glow {
-            font-family: 'Syncopate', sans-serif; font-size: 32px;
-            background: var(--gold-3d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
-            animation: light-sweep 2s infinite alternate;
+        .name-shine {
+            font-family: 'Syncopate', sans-serif; font-size: 30px;
+            background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite alternate;
         }
-        @keyframes light-sweep { from { brightness: 1; } to { filter: brightness(1.5) drop-shadow(0 0 20px #ffd700); } }
+        @keyframes glow { from { filter: brightness(1); } to { filter: brightness(1.5); } }
 
-        .status-pill { display: flex; align-items: center; gap: 8px; background: rgba(0,255,136,0.1); padding: 5px 12px; border-radius: 30px; border: 1px solid #00ff88; }
-        .dot { width: 8px; height: 8px; background: #00ff88; border-radius: 50%; animation: blinker 1s infinite; box-shadow: 0 0 15px #00ff88; }
-        @keyframes blinker { 50% { opacity: 0.1; } }
+        /* COMPACT ASSET BOX */
+        .vault { background: #0d1117; border-radius: 25px; padding: 20px; border: 1px solid #d4af3755; margin: 25px 0; }
+        .v-val { font-size: 45px; font-weight: 900; color: #238636; font-family: 'Syncopate', sans-serif; }
 
-        /* ASSET VAULT */
-        .asset-box { 
-            background: linear-gradient(145deg, #0d1117, #161b22); border-radius: 30px; padding: 25px; 
-            border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.9); margin-bottom: 30px;
+        /* BUTTONS WITH LASER SHINE */
+        .btn {
+            width: 100%; padding: 20px; border-radius: 15px; border: none; font-weight: 900;
+            font-family: 'Syncopate', sans-serif; font-size: 12px; margin-bottom: 20px;
+            cursor: pointer; position: relative; overflow: hidden;
         }
-        .a-label { font-size: 10px; color: #8b949e; letter-spacing: 3px; font-weight: 800; }
-        .a-val { font-size: 50px; font-weight: 900; color: #238636; margin: 10px 0; font-family: 'Syncopate', sans-serif; }
-
-        /* BUTTONS: ULTRA 3D DIAMOND GOLD */
-        .btn-system {
-            width: 100%; padding: 22px; border-radius: 18px; border: none; font-weight: 900; 
-            font-family: 'Syncopate', sans-serif; font-size: 13px; text-transform: uppercase;
-            cursor: pointer; margin-bottom: 22px; transition: 0.2s; position: relative; overflow: hidden;
-        }
-        .btn-system:active { transform: translateY(6px); box-shadow: 0 4px 0 rgba(0,0,0,0.6); }
-
-        .gold-task { 
-            background: var(--gold-3d); color: #000; 
-            box-shadow: 0 10px 0 #8a6d3b, 0 15px 30px rgba(212,175,55,0.4);
-            border: 1px solid #ffffff;
-        }
-
-        .green-share { 
-            background: linear-gradient(180deg, #2ea44f, #238636); color: white;
-            box-shadow: 0 10px 0 #144620, 0 15px 30px rgba(46,164,79,0.4);
-        }
-
-        /* Diamond Scan Shine */
-        .btn-system::after {
+        .btn-gold { background: var(--gold); color: black; box-shadow: 0 8px 0 #8a6d3b; }
+        .btn-green { background: linear-gradient(180deg, #2ea44f, #238636); color: white; box-shadow: 0 8px 0 #144620; }
+        
+        .btn::after {
             content: ''; position: absolute; top: -50%; left: -150%; width: 50%; height: 200%;
-            background: rgba(255,255,255,0.5); transform: rotate(20deg); animation: scan 3s infinite;
+            background: rgba(255,255,255,0.4); transform: rotate(20deg); animation: laser 3s infinite;
         }
-        @keyframes scan { 0% { left: -150%; } 100% { left: 200%; } }
-
-        #log-area { text-align: center; color: #e3b341; font-weight: 900; font-size: 12px; margin-bottom: 25px; }
+        @keyframes laser { 0% { left: -150%; } 100% { left: 200%; } }
     </style>
 </head>
 <body>
-    <div class="system-frame">
-        <div class="brand-header">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <div class="j-box-solid">J</div>
-                <div>
-                    <div class="name-glow">JAYASH</div>
-                    <div style="font-size: 9px; color: #d4af37; font-weight: 900; letter-spacing: 2px;">SYSTEM OWNER</div>
-                </div>
-            </div>
-            <div class="status-pill">
-                <div class="dot"></div>
-                <span style="font-size: 9px; font-weight: 900; color: #00ff88;">LIVE</span>
-            </div>
+    <div class="frame">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+            <div class="logo-box">J</div>
+            <div class="name-shine">JAYASH</div>
         </div>
 
-        <div class="asset-box">
-            <div class="a-label">GLOBAL ASSETS</div>
-            <div class="a-val">₹<span id="bal">300.00</span></div>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #484f58; font-weight: 900; border-top: 1px solid #21262d; padding-top: 15px;">
-                <span>ID: US-VIP-PRO</span>
-                <span>TASKS: <span id="tsk">1</span></span>
-            </div>
+        <div class="vault">
+            <div style="font-size: 10px; color: #8b949e; letter-spacing: 2px;">GLOBAL ASSETS</div>
+            <div class="v-val">₹<span id="bal">300.00</span></div>
         </div>
 
-        <div id="log-area">SYSTEM READY: CLICK TO INITIALIZE</div>
+        <div id="status" style="text-align: center; color: #d4af37; font-size: 12px; margin-bottom: 20px; font-weight: 800;">SYSTEM SECURE</div>
 
-        <button onclick="safeOpenAds()" class="btn-system gold-task">INITIALIZE ADS TASK (₹499)</button>
+        <button onclick="startAds()" class="btn btn-gold">INITIALIZE ADS TASK (₹499)</button>
+        <button onclick="window.open('https://api.whatsapp.com/send?text=Join My System!', '_blank')" class="btn btn-green">SHARE ON WHATSAPP (₹300)</button>
 
-        <button onclick="startShare()" class="btn-system green-share">SHARE ON WHATSAPP (₹300)</button>
-
-        <button onclick="alert('Security Alert: Minimum balance ₹5,000 required.')" style="background:transparent; border:1px solid #f85149; color:#f85149; padding:15px; border-radius:12px; width:100%; cursor:pointer; font-weight:900; font-size:11px;">WITHDRAW ASSETS</button>
-
-        <footer style="margin-top: 50px; text-align: center; color: #30363d; font-size: 9px; font-weight: 900; letter-spacing: 2px;">
-            VERIFIED AMERICAN SYSTEM © 2026 JAYASH GLOBAL
-        </footer>
+        <footer style="text-align: center; font-size: 9px; color: #30363d; margin-top: 40px;">© 2026 JAYASH GLOBAL AMERICAN SYSTEMS</footer>
     </div>
 
     <script>
-        let balance = 300; 
-        let tasks = 1;
-
-        // SABSE PAKA METHOD ADS KHOLNE KA
-        function safeOpenAds() {
-            const link = "https://omg10.com/afu.php?zoneid=8831952";
-            document.getElementById('log-area').innerText = "CONNECTING TO ADS SERVER...";
-            
-            // Try method 1: New Window
-            let adsWin = window.open(link, '_blank');
-            
-            // Try method 2: If blocked or failed
-            if (!adsWin || adsWin.closed || typeof adsWin.closed=='undefined') { 
-                window.location.assign(link);
-            }
-        }
-
-        function startShare() {
-            const url = window.location.href;
-            const msg = encodeURIComponent("JAYASH GLOBAL: Join the Elite System! 💎\nLink: " + url);
-            window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
-
-            let s = 30;
-            const log = document.getElementById('log-area');
-            const t = setInterval(() => {
-                s--;
-                log.innerText = `VERIFYING GLOBAL SHARE... ${s}S`;
-                if(s <= 0) {
-                    clearInterval(t);
-                    balance += 300; tasks += 1;
-                    document.getElementById('bal').innerText = balance.toLocaleString('en-IN') + ".00";
-                    document.getElementById('tsk').innerText = tasks;
-                    log.innerText = "SUCCESS: ₹300 ADDED";
-                }
-            }, 1000);
+        function startAds() {
+            const url = "https://omg10.com/afu.php?zoneid=8831952";
+            document.getElementById('status').innerText = "CONNECTING...";
+            // Try different ways to open if one fails
+            const win = window.open(url, '_blank');
+            if(!win) { window.location.href = url; }
         }
     </script>
 </body>
