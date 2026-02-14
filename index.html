@@ -4,89 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;600;800&display=swap');
+        
         :root { --gold: linear-gradient(135deg, #fbf5b7 0%, #d4af37 50%, #b8860b 100%); }
-        body { background: #050505; color: #fff; font-family: 'Montserrat', sans-serif; text-align: center; margin: 0; padding: 15px; }
-        
-        /* TOP BRAND HEADER */
-        .header { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #d4af3744; }
-        .j-box { width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 25px; color: #000; font-weight: 900; box-shadow: 0 0 15px #d4af37; border: 1px solid #fff; }
-        .brand-name { font-family: 'Cinzel', serif; font-size: 18px; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
-        
-        .live-btn { display: flex; align-items: center; gap: 5px; background: #000; border: 1px solid #00ff88; padding: 3px 8px; border-radius: 10px; font-size: 9px; color: #00ff88; font-weight: 800; }
-        .dot { width: 7px; height: 7px; background: #00ff88; border-radius: 50%; animation: blink 1s infinite; }
+        body { background: #050505; color: #fff; font-family: 'Montserrat', sans-serif; margin: 0; padding: 15px; overflow: hidden; }
+
+        /* HEADER: SPINNING LOGO & OWNER */
+        .header { display: flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #d4af3733; }
+        .j-spin { 
+            width: 45px; height: 45px; background: var(--gold); border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 24px; color: #000; font-weight: 900; 
+            box-shadow: 0 0 15px #d4af37; border: 1px solid #fff;
+            animation: rotateGold 4s infinite linear; 
+        }
+        @keyframes rotateGold { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+
+        .brand-text { flex-grow: 1; margin-left: 12px; text-align: left; }
+        .brand-name { font-family: 'Cinzel', serif; font-size: 16px; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px; }
+        .owner-info { font-size: 8px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+        .live-tag { display: flex; align-items: center; gap: 5px; background: #000; border: 1px solid #00ff88; padding: 3px 8px; border-radius: 10px; font-size: 8px; color: #00ff88; }
+        .dot { width: 6px; height: 6px; background: #00ff88; border-radius: 50%; animation: blink 1s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* ASSET VAULT */
-        .vault { background: #0d1117; border: 1px solid #d4af3755; border-radius: 20px; padding: 25px; margin: 20px 0; }
-        .balance { font-size: 45px; font-weight: 800; color: #fff; margin: 5px 0; }
-        #timer-text { color: #d4af37; font-size: 12px; font-weight: bold; margin-top: 10px; display: none; }
+        /* ASSET CARD */
+        .vault { background: linear-gradient(180deg, #0f0f0f, #000); border: 1px solid #d4af3744; border-radius: 15px; padding: 20px; margin: 20px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .vault-label { font-size: 9px; color: #d4af37; letter-spacing: 2px; }
+        .balance { font-size: 38px; font-weight: 800; margin: 10px 0; }
+        #timer-box { font-size: 11px; color: #d4af37; font-weight: bold; margin-top: 10px; display: none; }
 
-        /* GOLD BUTTONS */
-        .btn { width: 100%; padding: 16px; border-radius: 10px; border: none; font-weight: 800; font-size: 12px; margin-bottom: 15px; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
-        .btn-gold { background: var(--gold); color: #000; box-shadow: 0 4px 15px rgba(212,175,55,0.3); }
+        /* PREMIUM BUTTONS */
+        .btn { width: 100%; padding: 15px; border-radius: 8px; border: none; font-weight: 800; font-size: 10px; letter-spacing: 1px; cursor: pointer; margin-bottom: 12px; text-transform: uppercase; transition: 0.3s; }
+        .btn-gold { background: var(--gold); color: #000; box-shadow: 0 5px 15px rgba(212,175,55,0.2); }
         .btn-wa { background: transparent; color: #25D366; border: 1px solid #25D366; }
-        .btn-withdraw { color: #555; font-size: 10px; margin-top: 10px; background: transparent; }
+        .btn-withdraw { color: #444; font-size: 9px; background: transparent; margin-top: 10px; }
+
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
     </style>
 </head>
 <body>
+
     <div class="header">
-        <div class="j-box">J</div>
-        <div class="brand-name">JAYASH ELITE</div>
-        <div class="live-btn"><div class="dot"></div> LIVE</div>
+        <div class="j-spin">J</div>
+        <div class="brand-text">
+            <div class="brand-name">JAYASH ELITE</div>
+            <div class="owner-info">Owner: Jayash JB | Technical Property</div>
+        </div>
+        <div class="live-tag"><div class="dot"></div> LIVE</div>
     </div>
 
     <div class="vault">
-        <div style="font-size: 9px; color: #888; letter-spacing: 2px;">GLOBAL ASSET INVENTORY</div>
+        <div class="vault-label">GLOBAL ASSET INVENTORY</div>
         <div class="balance">₹<span id="bal">300.00</span></div>
-        <div id="timer-text">ADS VERIFYING: <span id="seconds">30</span>s...</div>
+        <div id="timer-box">VERIFYING SECURE ADS: <span id="sec">30</span>s</div>
     </div>
 
-    <button id="task-btn" onclick="startAdTask()" class="btn btn-gold">Initialize Ad Protocol (₹499)</button>
-    <button onclick="shareTask()" class="btn btn-wa">WhatsApp Networking (₹300)</button>
+    <button id="taskBtn" onclick="handleAd()" class="btn btn-gold">Initialize Ad Protocol (₹499)</button>
+    <button onclick="handleShare()" class="btn btn-wa">WhatsApp Networking (₹300)</button>
     
     <button onclick="alert('MINIMUM WITHDRAW: ₹5,000')" class="btn btn-withdraw">Withdraw Gold Assets</button>
 
     <script>
-        let balance = 300;
-        
-        function startAdTask() {
-            // Ad khulegi
+        let currentBalance = 300;
+
+        function handleAd() {
+            // 1. Pehle Ads khulegi naye tab mein
             window.open("https://www.effectivegatecpm.com/fngjdct5?key=4bce424f12aa415209093fa656cf3dd4", "_blank");
-            
-            // Timer chalu hoga
+
+            // 2. Ab Timer shuru hoga website par
             let timeLeft = 30;
-            const timerText = document.getElementById('timer-text');
-            const secSpan = document.getElementById('seconds');
-            const btn = document.getElementById('task-btn');
-            
+            const btn = document.getElementById('taskBtn');
+            const timerBox = document.getElementById('timer-box');
+            const secSpan = document.getElementById('sec');
+
             btn.disabled = true;
-            btn.innerText = "TASK IN PROGRESS...";
-            timerText.style.display = "block";
+            btn.innerText = "PROTOCOL IN PROGRESS...";
+            timerBox.style.display = "block";
 
             let countdown = setInterval(() => {
                 timeLeft--;
                 secSpan.innerText = timeLeft;
-                
+
                 if (timeLeft <= 0) {
                     clearInterval(countdown);
-                    balance += 499;
-                    document.getElementById('bal').innerText = balance.toFixed(2);
-                    timerText.style.display = "none";
+                    currentBalance += 499;
+                    document.getElementById('bal').innerText = currentBalance.toFixed(2);
+                    timerBox.style.display = "none";
                     btn.disabled = false;
                     btn.innerText = "INITIALIZE AD PROTOCOL (₹499)";
-                    alert("SUCCESS: ₹499 ADDED TO YOUR ASSETS!");
+                    alert("GOLD ASSETS VERIFIED: ₹499 ADDED!");
                 }
             }, 1000);
         }
 
-        function shareTask() {
-            window.open('https://api.whatsapp.com/send?text=Join Jayash Elite Gold System!', '_blank');
-            setTimeout(() => { 
-                balance += 300;
-                document.getElementById('bal').innerText = balance.toFixed(2);
-                alert("REFERRAL BONUS: ₹300 ADDED!");
-            }, 5000);
+        function handleShare() {
+            window.open('https://api.whatsapp.com/send?text=Join Jayash Elite System!', '_blank');
+            setTimeout(() => {
+                currentBalance += 300;
+                document.getElementById('bal').innerText = currentBalance.toFixed(2);
+                alert("NETWORK BONUS: ₹300 ADDED!");
+            }, 4000);
         }
     </script>
 </body>
