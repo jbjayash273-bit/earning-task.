@@ -6,74 +6,128 @@
     <title>JAYASH GLOBAL | American Elite</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Exo+2:wght@900&display=swap');
-        :root { --gold: linear-gradient(180deg, #ffeb3b 0%, #d4af37 40%, #8a6d3b 70%, #fcf6ba 100%); }
-        body { font-family: 'Exo 2', sans-serif; background: #010409; color: white; margin: 0; display: flex; justify-content: center; }
-        .frame { width: 100%; max-width: 480px; padding: 20px; box-sizing: border-box; }
         
-        /* SOLID GOLD LOGO - NO WHITE */
-        .logo-box {
-            width: 60px; height: 60px; background: var(--gold); border-radius: 12px;
+        :root { 
+            --gold: linear-gradient(180deg, #ffeb3b 0%, #d4af37 40%, #8a6d3b 70%, #fcf6ba 100%);
+            --glow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        body { font-family: 'Exo 2', sans-serif; background: #010409; color: white; margin: 0; display: flex; justify-content: center; overflow-x: hidden; }
+        .frame { width: 100%; max-width: 450px; padding: 25px; box-sizing: border-box; }
+
+        /* HEADER & SOLID GOLD J */
+        .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 35px; }
+        .j-solid {
+            width: 65px; height: 65px; background: var(--gold); border-radius: 15px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 38px; font-weight: 900; color: #5d4037; /* Bronze color for J */
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
-            animation: spin 5s infinite linear; border: 2px solid #ffd700;
+            font-size: 40px; font-weight: 900; color: #5d4037; 
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.8), inset 0 0 10px rgba(0,0,0,0.4);
+            animation: rotate3d 6s infinite linear; border: 2px solid #ffd700;
         }
-        @keyframes spin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+        @keyframes rotate3d { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
 
-        .name-shine {
-            font-family: 'Syncopate', sans-serif; font-size: 30px;
+        .owner-info { flex-grow: 1; margin-left: 15px; }
+        .owner-name { 
+            font-family: 'Syncopate', sans-serif; font-size: 28px; 
             background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: glow 2s infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
         }
-        @keyframes glow { from { filter: brightness(1); } to { filter: brightness(1.5); } }
+        .owner-tag { font-size: 10px; color: #d4af37; font-weight: 800; letter-spacing: 2px; margin-top: 5px; }
 
-        /* COMPACT ASSET BOX */
-        .vault { background: #0d1117; border-radius: 25px; padding: 20px; border: 1px solid #d4af3755; margin: 25px 0; }
-        .v-val { font-size: 45px; font-weight: 900; color: #238636; font-family: 'Syncopate', sans-serif; }
+        /* LIVE SYSTEM DOT */
+        .live-status { display: flex; align-items: center; gap: 8px; background: rgba(0,255,136,0.1); padding: 6px 12px; border-radius: 20px; border: 1px solid #00ff88; }
+        .dot { width: 10px; height: 10px; background: #00ff88; border-radius: 50%; animation: blinker 1s infinite; box-shadow: 0 0 15px #00ff88; }
+        @keyframes blinker { 50% { opacity: 0.1; } }
 
-        /* BUTTONS WITH LASER SHINE */
+        /* ASSET BOX */
+        .vault { 
+            background: linear-gradient(145deg, #0d1117, #161b22); border-radius: 30px; padding: 30px; 
+            border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: 0 20px 50px rgba(0,0,0,1); margin-bottom: 30px;
+        }
+        .v-amt { font-size: 50px; font-weight: 900; color: #238636; font-family: 'Syncopate', sans-serif; text-shadow: 0 0 20px rgba(35,134,54,0.4); }
+
+        /* BUTTONS: DIAMOND & NATURAL GOLD */
         .btn {
-            width: 100%; padding: 20px; border-radius: 15px; border: none; font-weight: 900;
-            font-family: 'Syncopate', sans-serif; font-size: 12px; margin-bottom: 20px;
-            cursor: pointer; position: relative; overflow: hidden;
+            width: 100%; padding: 22px; border-radius: 18px; border: none; font-weight: 900;
+            font-family: 'Syncopate', sans-serif; font-size: 12px; margin-bottom: 22px;
+            cursor: pointer; position: relative; overflow: hidden; display: block;
+            box-shadow: 0 10px 0 rgba(0,0,0,0.5); transition: 0.2s;
         }
-        .btn-gold { background: var(--gold); color: black; box-shadow: 0 8px 0 #8a6d3b; }
-        .btn-green { background: linear-gradient(180deg, #2ea44f, #238636); color: white; box-shadow: 0 8px 0 #144620; }
+        .btn:active { transform: translateY(6px); box-shadow: 0 4px 0 rgba(0,0,0,0.5); }
         
+        .btn-gold { background: var(--gold); color: black; border: 1px solid #ffffff; }
+        .btn-green { background: linear-gradient(180deg, #2ea44f, #238636); color: white; }
+        .btn-withdraw { 
+            background: var(--gold); color: #5d4037; font-size: 13px;
+            border: 2px solid #ffd700; box-shadow: 0 10px 0 #8a6d3b, 0 20px 40px rgba(212,175,55,0.3);
+        }
+
+        /* Shine Effect */
         .btn::after {
             content: ''; position: absolute; top: -50%; left: -150%; width: 50%; height: 200%;
-            background: rgba(255,255,255,0.4); transform: rotate(20deg); animation: laser 3s infinite;
+            background: rgba(255,255,255,0.6); transform: rotate(20deg); animation: shine 3s infinite;
         }
-        @keyframes laser { 0% { left: -150%; } 100% { left: 200%; } }
+        @keyframes shine { 0% { left: -150%; } 100% { left: 200%; } }
     </style>
 </head>
 <body>
     <div class="frame">
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
-            <div class="logo-box">J</div>
-            <div class="name-shine">JAYASH</div>
+        <div class="header">
+            <div class="j-solid">J</div>
+            <div class="owner-info">
+                <div class="owner-name">JAYASH</div>
+                <div class="owner-tag">OFFICIAL SYSTEM OWNER</div>
+            </div>
+            <div class="live-status">
+                <div class="dot"></div>
+                <span style="font-size: 10px; font-weight: 900; color: #00ff88;">LIVE</span>
+            </div>
         </div>
 
         <div class="vault">
-            <div style="font-size: 10px; color: #8b949e; letter-spacing: 2px;">GLOBAL ASSETS</div>
-            <div class="v-val">₹<span id="bal">300.00</span></div>
+            <div style="font-size: 11px; color: #8b949e; letter-spacing: 2px; font-weight: 800;">GLOBAL ASSETS CONTROL</div>
+            <div class="v-amt" id="v-amt">₹300.00</div>
+            <div style="font-size: 10px; color: #484f58; margin-top: 15px;">ID: US-VIP-PRO-2026</div>
         </div>
 
-        <div id="status" style="text-align: center; color: #d4af37; font-size: 12px; margin-bottom: 20px; font-weight: 800;">SYSTEM SECURE</div>
+        <div id="status" style="text-align: center; color: #d4af37; font-size: 13px; font-weight: 800; margin-bottom: 25px;">ESTABLISHING ENCRYPTED LINK...</div>
 
         <button onclick="startAds()" class="btn btn-gold">INITIALIZE ADS TASK (₹499)</button>
-        <button onclick="window.open('https://api.whatsapp.com/send?text=Join My System!', '_blank')" class="btn btn-green">SHARE ON WHATSAPP (₹300)</button>
+        <button onclick="startShare()" class="btn btn-green">SHARE ON WHATSAPP (₹300)</button>
+        <button onclick="alert('MINIMUM WITHDRAWAL: ₹5,000')" class="btn btn-withdraw">WITHDRAW ASSETS (GOLD ELITE)</button>
 
-        <footer style="text-align: center; font-size: 9px; color: #30363d; margin-top: 40px;">© 2026 JAYASH GLOBAL AMERICAN SYSTEMS</footer>
+        <footer style="text-align: center; font-size: 9px; color: #30363d; margin-top: 50px; letter-spacing: 2px;">
+            VERIFIED AMERICAN SYSTEM © 2026 JAYASH GLOBAL
+        </footer>
     </div>
 
     <script>
         function startAds() {
             const url = "https://omg10.com/afu.php?zoneid=8831952";
-            document.getElementById('status').innerText = "CONNECTING...";
-            // Try different ways to open if one fails
-            const win = window.open(url, '_blank');
-            if(!win) { window.location.href = url; }
+            document.getElementById('status').innerText = "TURBO-PROTOCOL ACTIVE...";
+            
+            // Sabse paka tarika ads kholne ka
+            const a = document.createElement('a');
+            a.href = url;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        function startShare() {
+            window.open('https://api.whatsapp.com/send?text=Join Jayash Global Elite!', '_blank');
+            let s = 30;
+            const log = document.getElementById('status');
+            const t = setInterval(() => {
+                s--;
+                log.innerText = `VERIFYING SHARE... ${s}S`;
+                if(s <= 0) {
+                    clearInterval(t);
+                    log.innerText = "SUCCESS: ₹300 ADDED";
+                    document.getElementById('v-amt').innerText = "₹600.00";
+                }
+            }, 1000);
         }
     </script>
 </body>
