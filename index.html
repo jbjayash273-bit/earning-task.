@@ -3,93 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAYASH GLOBAL | Professional Elite Portal</title>
+    <title>JAYASH GLOBAL | Professional Elite System</title>
     <style>
-        :root { 
-            --gold-gradient: linear-gradient(90deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
-            --deep-navy: #040916;
-        }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--deep-navy); color: white; margin: 0; display: flex; justify-content: center; }
-        .app-container { width: 100%; max-width: 460px; padding: 20px; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@400;800&display=swap');
 
-        /* Solid Gold Header */
-        .gold-shimmer { 
-            background: var(--gold-gradient);
-            background-size: 200% auto;
+        :root { 
+            --gold-primary: #FFD700;
+            --gold-dark: #B8860B;
+            --bg-deep: #020617;
+            --glass: rgba(15, 23, 42, 0.8);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-deep); 
+            background-image: radial-gradient(circle at top right, #1e293b, #020617);
+            color: white; margin: 0; display: flex; justify-content: center; min-height: 100vh;
+        }
+
+        .system-container { width: 100%; max-width: 480px; padding: 25px; box-sizing: border-box; }
+
+        /* HEADER: Solid Gold 3D Text */
+        .header-elite { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; }
+        
+        .gold-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 44px;
+            letter-spacing: 4px;
+            background: linear-gradient(to bottom, #ffface 0%, #f1d943 20%, #bf953f 40%, #8e6d13 70%, #fcf6ba 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gold-flow 2s linear infinite;
-            font-weight: 900;
+            filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.8));
+            line-height: 1;
         }
-        .gold-name { font-size: 40px; letter-spacing: 5px; margin: 0; }
-        .owner-sub { font-size: 12px; letter-spacing: 2px; display: block; margin-top: 5px; }
-        @keyframes gold-flow { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
 
-        /* Dashboard */
-        .dashboard-card { background: linear-gradient(145deg, #0d1425, #161e31); border-radius: 24px; padding: 25px; border: 1px solid #1e293b; margin-bottom: 20px; text-align: left; }
-        .bal-main { font-size: 45px; font-weight: 800; color: #10b981; margin: 10px 0; }
+        .owner-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #bf953f;
+            text-transform: uppercase;
+            margin-top: 8px;
+            font-weight: 800;
+        }
 
-        /* Buttons Style */
-        .btn-ads { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; padding: 18px; border-radius: 12px; font-weight: 800; border: none; width: 100%; font-size: 16px; margin-bottom: 12px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
-        .btn-share { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; padding: 18px; border-radius: 12px; font-weight: 800; border: none; width: 100%; font-size: 16px; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); }
-        .btn-withdraw { background: transparent; border: 1px solid #ef4444; color: #ef4444; padding: 12px; border-radius: 10px; width: 100%; margin-top: 20px; cursor: pointer; font-size: 12px; font-weight: bold; }
+        /* Blinking Live Light */
+        .live-panel { display: flex; align-items: center; background: rgba(0,0,0,0.3); padding: 5px 12px; border-radius: 20px; border: 1px solid #1e293b; }
+        .blinker { 
+            width: 10px; height: 10px; background: #22c55e; border-radius: 50%; margin-right: 8px; 
+            box-shadow: 0 0 15px #22c55e;
+            animation: blink-anim 1s step-end infinite;
+        }
+        @keyframes blink-anim { 50% { opacity: 0; box-shadow: none; } }
+        .live-text { font-size: 10px; font-weight: 900; color: #94a3b8; letter-spacing: 1px; }
 
-        #status { color: #fbbf24; font-weight: bold; margin-bottom: 10px; text-align: center; font-size: 14px; text-transform: uppercase; }
-        .live-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; display: inline-block; margin-right: 5px; box-shadow: 0 0 10px #22c55e; }
+        /* Dashboard: Professional Asset Card */
+        .asset-card { 
+            background: var(--glass);
+            border-radius: 28px; padding: 35px; 
+            border: 1px solid rgba(255,215,0,0.15);
+            margin-bottom: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+        }
+        .label { font-size: 11px; color: #64748b; letter-spacing: 3px; font-weight: 800; }
+        .balance-value { font-size: 55px; font-weight: 800; color: #10b981; margin: 15px 0; font-family: 'Orbitron', sans-serif; text-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+
+        /* High-End Buttons */
+        .main-btn {
+            width: 100%; padding: 22px; border-radius: 16px; border: none; font-weight: 900; font-family: 'Orbitron', sans-serif;
+            font-size: 15px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; margin-bottom: 15px;
+            transition: all 0.2s ease; position: relative; overflow: hidden;
+        }
+        .main-btn:active { transform: scale(0.96); filter: brightness(1.2); }
+
+        .btn-ads { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; box-shadow: 0 8px 0 #1e3a8a, 0 15px 30px rgba(37, 99, 235, 0.3); }
+        .btn-share { background: linear-gradient(135deg, #10b981, #059669); color: white; box-shadow: 0 8px 0 #064e3b, 0 15px 30px rgba(16, 185, 129, 0.3); }
+        
+        .btn-withdraw { 
+            background: transparent; border: 2px solid #ef4444; color: #ef4444; 
+            padding: 15px; border-radius: 12px; width: 100%; margin-top: 20px; font-weight: 800;
+        }
+
+        #status-bar { text-align: center; color: #fbbf24; font-weight: 900; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+    <div class="system-container">
+        <div class="header-elite">
             <div>
-                <div class="gold-name gold-shimmer">JAYASH</div>
-                <span class="owner-sub gold-shimmer">OFFICIAL SYSTEM OWNER</span>
+                <div class="gold-brand">JAYASH</div>
+                <div class="owner-tag">OFFICIAL SYSTEM OWNER</div>
             </div>
-            <div style="font-size: 10px; color: #94a3b8; font-weight: bold;"><span class="live-dot"></span> SYSTEMS LIVE</div>
-        </div>
-
-        <div class="dashboard-card">
-            <div style="font-size: 11px; color: #64748b; letter-spacing: 2px;">GLOBAL ASSETS CONTROL</div>
-            <div class="bal-main">₹ <span id="balance">0.00</span></div>
-            <div style="font-size: 10px; color: #475569; border-top: 1px solid #1e293b; padding-top: 10px;">
-                SERVER: GLOBAL-VIP-01 | VERIFIED TASKS: <span id="taskCount">0</span>
+            <div class="live-panel">
+                <div class="blinker"></div>
+                <div class="live-text">SYSTEMS LIVE</div>
             </div>
         </div>
 
-        <div id="status">Awaiting Protocol...</div>
+        <div class="asset-card">
+            <div class="label">GLOBAL ASSET CONTROL</div>
+            <div class="balance-value">₹<span id="balance">0.00</span></div>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px;">
+                <span>ID: US-VIP-7782</span>
+                <span>TASKS: <span id="tasks">0</span></span>
+            </div>
+        </div>
 
-        <button onclick="openAds()" class="btn-ads">INITIALIZE ASSET TASK (₹499)</button>
+        <div id="status-bar">AWAITING SYSTEM PROTOCOL...</div>
 
-        <button onclick="shareTask()" class="btn-share">SHARE ON WHATSAPP (₹300)</button>
-        
-        <button onclick="alert('Minimum Withdrawal ₹5,000 required.')" class="btn-withdraw">WITHDRAW ASSETS (MIN. ₹5000)</button>
+        <button onclick="openAds()" class="main-btn btn-ads">INITIALIZE ASSET TASK (₹499)</button>
+        <button onclick="startShare()" class="main-btn btn-share">SHARE ON WHATSAPP (₹300)</button>
 
-        <footer style="font-size: 9px; color: #475569; margin-top: 40px; text-align: center;">
-            © 2026 JAYASH GLOBAL AMERICAN SYSTEMS | VERIFIED PORTAL
+        <button onclick="alert('Elite Protocol: Minimum Withdrawal ₹5,000 required.')" class="btn-withdraw">WITHDRAWAL ASSETS</button>
+
+        <footer style="margin-top: 50px; text-align: center; color: #334155; font-size: 10px; font-weight: 800; letter-spacing: 1px;">
+            © 2026 JAYASH GLOBAL AMERICAN SYSTEMS | SECURITY ENCRYPTED
         </footer>
     </div>
 
     <script>
-        let balance = 0; let count = 0;
+        let bal = 0; let t = 0;
 
         function openAds() {
-            // Yahan apna Monetag Direct Link paste karo
             window.open('https://omg10.com/afu.php?zoneid=8831952', '_blank');
-            document.getElementById('status').innerText = "ADS INITIALIZED: PROFIT TRACKING...";
+            document.getElementById('status-bar').innerText = "ADS PROTOCOL ACTIVE: EARNINGS TRACKED";
         }
 
-        function shareTask() {
-            const siteUrl = window.location.href;
-            const msg = encodeURIComponent("JAYASH GLOBAL: Join elite system to earn daily! 🚀\nLink: " + siteUrl);
-            window.open("https://api.whatsapp.com/send?text=" + msg, '_blank');
+        function startShare() {
+            const link = window.location.href;
+            const msg = encodeURIComponent("JAYASH GLOBAL: Connect to this Elite System to grow your assets! 🚀\nAccess Here: " + link);
+            window.open(`https://api.whatsapp.com/send?text=${msg}`, '_blank');
 
-            document.getElementById('status').innerText = "VERIFYING SHARE PROTOCOL...";
-            setTimeout(() => {
-                balance += 300; count += 1;
-                document.getElementById('balance').innerText = balance.toLocaleString('en-IN') + ".00";
-                document.getElementById('taskCount').innerText = count;
-                document.getElementById('status').innerText = "SUCCESS: ₹300 ASSETS ADDED";
-            }, 5000);
+            let timer = 30;
+            const status = document.getElementById('status-bar');
+            
+            const countdown = setInterval(() => {
+                timer--;
+                status.innerText = `VERIFYING SHARE PROTOCOL... ${timer}S`;
+                if(timer <= 0) {
+                    clearInterval(countdown);
+                    bal += 300; t += 1;
+                    document.getElementById('balance').innerText = bal.toLocaleString('en-IN') + ".00";
+                    document.getElementById('tasks').innerText = t;
+                    status.innerText = "SUCCESS: ₹300 ASSETS CREDITED";
+                }
+            }, 1000);
         }
     </script>
 </body>
